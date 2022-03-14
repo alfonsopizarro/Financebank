@@ -16,4 +16,5 @@ class pantallaprincipal: AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_principal)
         supportActionBar?.hide()
     }
+
 }

@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.activity_registroactivity.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-
 class registroactivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +24,8 @@ class registroactivity : AppCompatActivity() {
             val intent= Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
-        //base de datos registro
 
+        //base de datos registro
         registroboton.setOnClickListener {
             val admin = AdminSQLiteHelper(this,"FinanceBank", null, 1)
             val bd = admin.writableDatabase
@@ -37,8 +36,7 @@ class registroactivity : AppCompatActivity() {
             bd.insert("registro",null, registro)
             bd.close()
             Toast.makeText(this, "Enhorabuena has sido registrado correctamente", Toast.LENGTH_SHORT).show()
-
-
+        //codificar contraseña buscar
         }
 
     }
