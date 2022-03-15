@@ -1,13 +1,11 @@
 package com.example.financebank
 
 
-import android.content.ContentValues
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_registroactivity.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_pantalla_principal.*
 
 

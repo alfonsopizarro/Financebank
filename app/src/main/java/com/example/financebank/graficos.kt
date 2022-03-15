@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_graficos.*
-import kotlinx.android.synthetic.main.activity_ingresos.*
-import kotlinx.android.synthetic.main.activity_pantalla_principal.*
 
 class graficos: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

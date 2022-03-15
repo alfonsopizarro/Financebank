@@ -1,11 +1,11 @@
 package com.example.financebank
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.view.*
+
 
 
 class MainActivity : AppCompatActivity() {

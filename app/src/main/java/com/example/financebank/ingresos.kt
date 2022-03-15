@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_ingresos.*
-import kotlinx.android.synthetic.main.activity_pantalla_principal.*
-import kotlinx.android.synthetic.main.activity_registroactivity.*
+
 
 class ingresos: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {

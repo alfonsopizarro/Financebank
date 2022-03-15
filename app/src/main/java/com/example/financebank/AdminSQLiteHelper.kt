@@ -13,8 +13,6 @@ class AdminSQLiteHelper (context: Context, name: String, factory: CursorFactory?
                 "email" + " TEXT PRIMARY KEY, " +
                 "password" + " TEXT NOT NULL);"
         );
-
-        //limpio cache de al app
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
