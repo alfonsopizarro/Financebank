@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_registroactivity.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_pantalla_principal.*
 
 
 class pantallaprincipal: AppCompatActivity() {
@@ -15,6 +16,29 @@ class pantallaprincipal: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_principal)
         supportActionBar?.hide()
+
+
+        botongraficos.setOnClickListener{
+            val intent= Intent(this,graficos::class.java)
+            startActivity(intent)
+        }
+
+        botoningresos.setOnClickListener{
+            val intent= Intent(this,ingresos::class.java)
+            startActivity(intent)
+        }
+
+        botongastos.setOnClickListener{
+            val intent= Intent(this,gastos::class.java)
+            startActivity(intent)
+        }
+
+        botonhistorial.setOnClickListener{
+            val intent= Intent(this,historial::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
 }
