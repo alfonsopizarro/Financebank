@@ -17,6 +17,12 @@ class pantallaprincipal: AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_principal)
         supportActionBar?.hide()
 
+        val toast3 = Toast.makeText(
+            applicationContext,
+            "Bienvenido a tu area de Finance bank", Toast.LENGTH_SHORT
+        )
+        toast3.show()
+
 
         botongraficos.setOnClickListener{
             val intent= Intent(this,graficos::class.java)
