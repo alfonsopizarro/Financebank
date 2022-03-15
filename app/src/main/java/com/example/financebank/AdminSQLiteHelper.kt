@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory
 
 class AdminSQLiteHelper (context: Context, name: String, factory: CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
 
+
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(" CREATE TABLE " + "registro" + " (" +
                 "name" + " TEXT NOT NULL, " +
@@ -13,6 +14,7 @@ class AdminSQLiteHelper (context: Context, name: String, factory: CursorFactory?
                 "password" + " TEXT NOT NULL);"
         );
 
+        //limpio cache de al app
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

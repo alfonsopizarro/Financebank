@@ -16,6 +16,18 @@
             android:name=".pantallaprincipal"
             android:exported="true" />
         <activity
+            android:name=".ingresos"
+            android:exported="true" />
+        <activity
+            android:name=".gastos"
+            android:exported="true" />
+        <activity
+            android:name=".historial"
+            android:exported="true" />
+        <activity
+            android:name=".graficos"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
