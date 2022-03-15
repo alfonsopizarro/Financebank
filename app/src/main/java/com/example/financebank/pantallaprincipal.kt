@@ -42,8 +42,8 @@ class pantallaprincipal: AppCompatActivity() {
             startActivity(intent)
         }
 
-        botonsalirpantallaprincipal.setOnClickListener {
-            finish();{
+        botonsalirpantallaprincipal.setOnClickListener  {
+            onPause();onStop();finish();{
         }
         }
     }
