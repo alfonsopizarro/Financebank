@@ -146,7 +146,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/saliringresos"
+        android:id="@+id/botonsaliringresos"
         android:layout_width="85dp"
         android:layout_height="37dp"
         android:layout_marginStart="323dp"

@@ -38,7 +38,10 @@ class pantallaprincipal: AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        botonsalirpantallaprincipal.setOnClickListener {
+            finish();{
+        }
+        }
     }
 
 }
