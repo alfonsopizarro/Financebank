@@ -7,7 +7,7 @@
     android:background="@drawable/fotoingreso">
 
     <EditText
-        android:id="@+id/editTextTextPersonName77"
+        android:id="@+id/nombreingresos"
         android:layout_width="183dp"
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
@@ -16,7 +16,6 @@
         android:layout_marginBottom="440dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nomina"
         android:textColor="#050404"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,10 +23,11 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName101"
+        android:id="@+id/fechaingresos"
         android:layout_width="173dp"
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
@@ -36,16 +36,16 @@
         android:layout_marginBottom="356dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="15/02/2022"
         android:textColor="#050404"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName111"
+        android:id="@+id/cantidadingresos"
         android:layout_width="174dp"
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
@@ -54,22 +54,22 @@
         android:layout_marginBottom="276dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="1800"
         android:textColor="#050404"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/texteto11"
+        android:id="@+id/nombrei"
         android:layout_width="163dp"
         android:layout_height="21dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="162dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="476dp"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="159dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="479dp"
         android:text="NOMBRE DEL INGRESO"
         android:textColor="#050404"
         android:textStyle="bold"
@@ -79,23 +79,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/fechanombre"
         android:layout_width="160dp"
         android:layout_height="18dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="237dp"
-        android:layout_marginEnd="151dp"
+        android:layout_marginEnd="148dp"
         android:layout_marginBottom="404dp"
         android:text="FECHA"
         android:textColor="#050404"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/cantidadnombre"
         android:layout_width="161dp"
         android:layout_height="19dp"
         android:layout_marginStart="100dp"
@@ -111,7 +113,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button77"
+        android:id="@+id/botonaceptaringresos"
         android:layout_width="135dp"
         android:layout_height="36dp"
         android:layout_marginStart="144dp"
@@ -128,7 +130,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/botonvolveringresos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -144,7 +146,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/saliringresos"
         android:layout_width="85dp"
         android:layout_height="37dp"
         android:layout_marginStart="323dp"
