@@ -22,29 +22,35 @@ class pantallaprincipal: AppCompatActivity() {
         toast3.show()
 
 
-        botongraficos.setOnClickListener{
-            val intent= Intent(this,graficos::class.java)
+        botongraficos.setOnClickListener {
+            val intent = Intent(this, graficos::class.java)
             startActivity(intent)
         }
 
-        botoningresos.setOnClickListener{
-            val intent= Intent(this,ingresos::class.java)
+        botoningresos.setOnClickListener {
+            val intent = Intent(this, ingresos::class.java)
             startActivity(intent)
         }
 
-        botongastos.setOnClickListener{
-            val intent= Intent(this,gastos::class.java)
+        botongastos.setOnClickListener {
+            val intent = Intent(this, gastos::class.java)
             startActivity(intent)
         }
 
-        botonhistorial.setOnClickListener{
-            val intent= Intent(this,historial::class.java)
+        botonhistorial.setOnClickListener {
+            val intent = Intent(this, historial::class.java)
             startActivity(intent)
         }
 
-        botonsalirpantallaprincipal.setOnClickListener  {
+        botonsalirpantallaprincipal.setOnClickListener {
             onPause();onStop();finish();{
         }
+        }
+        //intentando llamar al nombre para usarlo
+        val admin = AdminSQLiteHelper(this, "FinanceBank", null, 1)
+        val bd = admin.readableDatabase
+        val fila = bd.rawQuery("select name from registro", null)
+        if (fila.moveToFirst()) {
         }
     }
 

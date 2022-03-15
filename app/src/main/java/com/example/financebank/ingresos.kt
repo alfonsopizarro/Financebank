@@ -1,10 +1,12 @@
 package com.example.financebank
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_ingresos.*
+import kotlinx.android.synthetic.main.activity_registroactivity.*
 
 
 class ingresos: AppCompatActivity(){
@@ -24,6 +26,21 @@ class ingresos: AppCompatActivity(){
             startActivity(intent)
         }
 
+
+
+        //tabla ingresos
+        botonaceptaringresos.setOnClickListener {
+            val admin = AdminSQLiteHelper(this,"FinanceBank", null, 1)
+            val bd = admin.writableDatabase
+            val ingreso = ContentValues()
+            ingreso.put("nombre", nombreingresos.getText().toString())
+            ingreso.put("fecha", fechaingresos.getText().toString())
+            ingreso.put("cantidad", cantidadingresos.getText().toString())
+            bd.insert("ingreso",null, ingreso)
+            bd.close()
+            Toast.makeText(this, "ingreso aplicado correctamente", Toast.LENGTH_SHORT).show()
+
+        }
         botonsaliringresos.setOnClickListener {
             finish();{
         }
