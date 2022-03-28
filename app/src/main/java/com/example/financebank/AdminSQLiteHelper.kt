@@ -13,6 +13,16 @@ class AdminSQLiteHelper (context: Context, name: String, factory: CursorFactory?
                 "email" + " TEXT PRIMARY KEY, " +
                 "password" + " TEXT NOT NULL);"
         );
+        db.execSQL(" CREATE TABLE " + "ingresos" + " (" +
+                "concepto" + " TEXT NOT NULL, " +
+                "fecha" + " TEXT PRIMARY KEY, " +
+                "cantidad" + " Int NOT NULL);"
+        );
+        db.execSQL(" CREATE TABLE " + "gastos" + " (" +
+                "concepto" + " TEXT NOT NULL, " +
+                "fecha" + " TEXT PRIMARY KEY, " +
+                "cantidad" + " Int NOT NULL);"
+        );
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

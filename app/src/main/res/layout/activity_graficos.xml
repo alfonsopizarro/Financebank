@@ -7,6 +7,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/hoja1">
 
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart_saldo"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginBottom="430dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginBottom="459dp" />
+    </com.github.mikephil.charting.charts.BarChart>
 
     <Button
         android:id="@+id/botonvolvergraficos"
@@ -19,65 +35,6 @@
         android:backgroundTint="#9E1D1D"
         android:text="volver"
         android:textColor="#F3EEEE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/areagrafico1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="459dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"></androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="310dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="487dp"
-        android:layout_marginEnd="267dp"
-        android:layout_marginBottom="312dp"
-        android:text="Notificaciones"
-        android:textColor="#0B0101"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="479dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="530dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="245dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/areagrafico2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="213dp"
-        android:layout_marginBottom="413dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

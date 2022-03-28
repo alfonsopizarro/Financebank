@@ -34,10 +34,10 @@ class gastos: AppCompatActivity() {
             val admin = AdminSQLiteHelper(this,"FinanceBank", null, 1)
             val bd = admin.writableDatabase
             val gasto = ContentValues()
-            gasto.put("nombre", nombregastos.getText().toString())
+            gasto.put("concepto", nombregastos.getText().toString())
             gasto.put("fecha", fechagastos.getText().toString())
-            gasto.put("cantidad", cantidadgastos.getText().toString())
-            bd.insert("gasto",null, gasto)
+            gasto.put("cantidad", Integer.parseInt(cantidadgastos.getText().toString()))
+            bd.insert("gastos",null, gasto)
             bd.close()
             Toast.makeText(this, "gasto aplicado correctamente", Toast.LENGTH_SHORT).show()
 

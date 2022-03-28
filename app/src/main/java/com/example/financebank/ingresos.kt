@@ -33,10 +33,10 @@ class ingresos: AppCompatActivity(){
             val admin = AdminSQLiteHelper(this,"FinanceBank", null, 1)
             val bd = admin.writableDatabase
             val ingreso = ContentValues()
-            ingreso.put("nombre", nombreingresos.getText().toString())
+            ingreso.put("concepto", nombreingresos.getText().toString())
             ingreso.put("fecha", fechaingresos.getText().toString())
-            ingreso.put("cantidad", cantidadingresos.getText().toString())
-            bd.insert("ingreso",null, ingreso)
+            ingreso.put("cantidad", Integer.parseInt(cantidadingresos.getText().toString()))
+            bd.insert("ingresos",null, ingreso)
             bd.close()
             Toast.makeText(this, "ingreso aplicado correctamente", Toast.LENGTH_SHORT).show()
 
