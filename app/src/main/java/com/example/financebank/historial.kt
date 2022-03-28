@@ -23,9 +23,6 @@ class historial: AppCompatActivity() {
             startActivity(intent)
         }
 
-        botonsalirhistorial.setOnClickListener {
-            finish();{
-        }
+
         }
     }
-}

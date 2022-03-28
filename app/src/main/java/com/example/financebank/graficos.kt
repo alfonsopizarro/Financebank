@@ -28,9 +28,6 @@ class graficos: AppCompatActivity() {
             startActivity(intent)
         }
 
-        botonsalirgraficos.setOnClickListener {
-            finish();{
-        }
+
         }
     }
-}

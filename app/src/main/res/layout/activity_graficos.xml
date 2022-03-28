@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/foto33">
+    android:background="@drawable/hoja1">
 
     <Button
         android:id="@+id/botonvolvergraficos"
@@ -22,22 +22,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/botonsalirgraficos"
-        android:layout_width="85dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="320dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="7dp"
-        android:backgroundTint="#9E1D1D"
-        android:text="salir"
-        android:textColor="#F3EEEE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
