@@ -26,24 +26,6 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/cantidadingresos"
-        android:layout_width="174dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="337dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="276dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="#050404"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <TextView
         android:id="@+id/nombrei"
         android:layout_width="163dp"
@@ -127,23 +109,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/botonsaliringresos"
-        android:layout_width="85dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="323dp"
-        android:layout_marginTop="615dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="7dp"
-        android:backgroundTint="#9E1D1D"
-        android:text="Salir"
-        android:textColor="#F3EEEE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
-
     <EditText
         android:id="@+id/fechaingresos"
         android:layout_width="183dp"
@@ -157,5 +122,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/cantidadingresos"
+        android:layout_width="183dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="335dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginBottom="276dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

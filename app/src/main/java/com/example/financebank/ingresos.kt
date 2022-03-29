@@ -41,9 +41,6 @@ class ingresos: AppCompatActivity(){
             Toast.makeText(this, "ingreso aplicado correctamente", Toast.LENGTH_SHORT).show()
 
         }
-        botonsaliringresos.setOnClickListener {
-            finish();{
-        }
+
         }
     }
-}

@@ -25,10 +25,7 @@ class gastos: AppCompatActivity() {
             startActivity(intent)
         }
 
-        botonsalirgastos.setOnClickListener {
-            finish();{
-        }
-        }
+
         //tabla gastos
         botonaceptargastos.setOnClickListener {
             val admin = AdminSQLiteHelper(this,"FinanceBank", null, 1)
