@@ -35,8 +35,9 @@ class ingresos: AppCompatActivity(){
             val ingreso = ContentValues()
             ingreso.put("concepto", nombreingresos.getText().toString())
             ingreso.put("fecha", fechaingresos.getText().toString())
+            ingreso.put("esIngreso", true)
             ingreso.put("cantidad", Integer.parseInt(cantidadingresos.getText().toString()))
-            bd.insert("ingresos",null, ingreso)
+            bd.insert("movimientos",null, ingreso)
             bd.close()
             Toast.makeText(this, "ingreso aplicado correctamente", Toast.LENGTH_SHORT).show()
 

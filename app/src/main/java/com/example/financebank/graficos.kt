@@ -40,8 +40,8 @@ class graficos: AppCompatActivity() {
         val bd = admin.readableDatabase
         var ingresos = 0
         var gastos = 0
-        val data_ingresos  = bd.rawQuery("select sum(cantidad)from ingresos", null)
-        val data_gastos  = bd.rawQuery("select sum(cantidad)from gastos", null)
+        val data_ingresos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = TRUE", null)
+        val data_gastos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = FALSE", null)
         if (data_ingresos.moveToFirst())
             ingresos = ingresos + data_ingresos.getInt(0)
         if (data_gastos.moveToFirst())

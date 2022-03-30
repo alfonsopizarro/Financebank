@@ -1,13 +1,11 @@
 package com.example.financebank
 
-import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_historial.*
 import kotlinx.android.synthetic.main.activity_ingresos.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class historial: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,15 +23,21 @@ class historial: AppCompatActivity() {
             val intent = Intent(this, pantallaprincipal::class.java)
             startActivity(intent)
         }
-        botonprueba.setOnClickListener {
+
         val admin = AdminSQLiteHelper(this, "FinanceBank", null, 1)
         val bd = admin.writableDatabase
-        val historiales = bd.rawQuery("select concepto, fecha, cantidad from ingresos where fecha='${fechaingresos.text}' and concepto= '${nombreingresos.text}'and cantidad= '${cantidadingresos.text}'", null)
-            if (historiales.moveToFirst()) {
-        historialingresos.setText("Identificador: "+historiales.getString(0)+"\n"+"nombre: "+historiales.getString(1)+"\n"+"Nº serie: "+historiales.getString(2))
-        } else
-        Toast.makeText(this, "No existen datos",  Toast.LENGTH_SHORT).show()
+        val historiales = bd.rawQuery("select concepto, fecha, cantidad, esIngreso from movimientos ", null)
+
+        var text = ""
+        while (historiales.moveToNext()) {
+            val signo = if( historiales.getInt(3) == 1)  "+" else "-"
+            text += "|Fecha: "+historiales.getString(1)+" "+"|Concepto: "+historiales.getString(0)+" "+"|Cantidad: "+ signo +historiales.getString(2) +"€ \n"
+        }
+        historialmovimientos.setText(text)
+        if (text == "")
+            historialmovimientos.setText("No hay datos, intruducelos en Ingresos o Gastos.")
         bd.close()
-    }
+
     }
 }
+

@@ -6,7 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_historial.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_pantalla_principal.*
+import kotlinx.android.synthetic.main.activity_registroactivity.*
 
 
 class pantallaprincipal: AppCompatActivity() {
@@ -47,11 +50,20 @@ class pantallaprincipal: AppCompatActivity() {
         }
         }
         //intentando llamar al nombre para usarlo
+
         val admin = AdminSQLiteHelper(this, "FinanceBank", null, 1)
         val bd = admin.readableDatabase
-        val fila = bd.rawQuery("select name from registro", null)
-        if (fila.moveToFirst()) {
+        var ingresos = 0
+        var gastos = 0
+        val data_ingresos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = TRUE", null)
+        val data_gastos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = FALSE", null)
+        if (data_ingresos.moveToFirst())
+            ingresos = ingresos + data_ingresos.getInt(0)
+        if (data_gastos.moveToFirst())
+            gastos = gastos + data_gastos.getInt(0)
+        val saldo = ingresos - gastos
+        val total = "$saldo  €"
+        dineroactual.setText(total)
         }
     }
 
-}

@@ -33,8 +33,9 @@ class gastos: AppCompatActivity() {
             val gasto = ContentValues()
             gasto.put("concepto", nombregastos.getText().toString())
             gasto.put("fecha", fechagastos.getText().toString())
+            gasto.put("esIngreso", false)
             gasto.put("cantidad", Integer.parseInt(cantidadgastos.getText().toString()))
-            bd.insert("gastos",null, gasto)
+            bd.insert("movimientos",null, gasto)
             bd.close()
             Toast.makeText(this, "gasto aplicado correctamente", Toast.LENGTH_SHORT).show()
 
