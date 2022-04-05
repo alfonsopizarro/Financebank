@@ -28,6 +28,9 @@
             android:name=".graficos"
             android:exported="true" />
         <activity
+            android:name=".notificaciones"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

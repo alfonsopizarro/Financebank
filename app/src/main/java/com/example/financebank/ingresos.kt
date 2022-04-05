@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_ingresos.*
+import kotlinx.android.synthetic.main.activity_pantalla_principal.*
 import kotlinx.android.synthetic.main.activity_registroactivity.*
 
 
@@ -21,8 +22,16 @@ class ingresos: AppCompatActivity(){
         )
         toast4.show()
 
+        val extras = intent.extras
+        var email = ""
+        if (extras != null) {
+            email = extras.getString("email").toString()
+
+        }
+
         botonvolveringresos.setOnClickListener{
             val intent= Intent(this,pantallaprincipal::class.java)
+            intent.putExtra("email",email)
             startActivity(intent)
         }
 
@@ -36,6 +45,7 @@ class ingresos: AppCompatActivity(){
             ingreso.put("concepto", nombreingresos.getText().toString())
             ingreso.put("fecha", fechaingresos.getText().toString())
             ingreso.put("esIngreso", true)
+            ingreso.put("email", email)
             ingreso.put("cantidad", Integer.parseInt(cantidadingresos.getText().toString()))
             bd.insert("movimientos",null, ingreso)
             bd.close()

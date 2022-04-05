@@ -19,14 +19,22 @@ class historial: AppCompatActivity() {
         )
         toast7.show()
 
+        val extras = intent.extras
+        var email = ""
+        if (extras != null) {
+            email = extras.getString("email").toString()
+
+        }
+
         botonvolverhistorial.setOnClickListener {
             val intent = Intent(this, pantallaprincipal::class.java)
+            intent.putExtra("email",email)
             startActivity(intent)
         }
 
         val admin = AdminSQLiteHelper(this, "FinanceBank", null, 1)
         val bd = admin.writableDatabase
-        val historiales = bd.rawQuery("select concepto, fecha, cantidad, esIngreso from movimientos ", null)
+        val historiales = bd.rawQuery("select concepto, fecha, cantidad, esIngreso from movimientos WHERE email='${email}'", null)
 
         var text = ""
         while (historiales.moveToNext()) {

@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
                 //investigar como pasar nombre a clase pantallaprincipal  val nombre = fila.getString(0)
                 val intent= Intent(this,pantallaprincipal::class.java)
+                intent.putExtra("nombre",fila.getString(0))
+                intent.putExtra("email",fila.getString(1))
                 startActivity(intent)
             } else
                 Toast.makeText(this, "Usuario o contraseña incorrecto",  Toast.LENGTH_SHORT).show()

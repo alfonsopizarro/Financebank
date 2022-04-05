@@ -17,15 +17,7 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.charts.BarChart
-
-
-
-
-
-
-
-
-
+import kotlinx.android.synthetic.main.activity_gastos.*
 
 
 class graficos: AppCompatActivity() {
@@ -35,18 +27,43 @@ class graficos: AppCompatActivity() {
         setContentView(com.example.financebank.R.layout.activity_graficos)
         supportActionBar?.hide()
 
-        //grafico pastel
+        val extras = intent.extras
+        var email = ""
+        if (extras != null) {
+            email = extras.getString("email").toString()
+
+        }
+
         val admin = AdminSQLiteHelper(this, "FinanceBank", null, 1)
         val bd = admin.readableDatabase
         var ingresos = 0
         var gastos = 0
-        val data_ingresos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = TRUE", null)
-        val data_gastos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = FALSE", null)
+        val data_ingresos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = TRUE and email='${email}'", null)
+        val data_gastos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = FALSE and email='${email}'", null)
         if (data_ingresos.moveToFirst())
+            //pasar datos a graficos
             ingresos = ingresos + data_ingresos.getInt(0)
         if (data_gastos.moveToFirst())
             gastos = gastos + data_gastos.getInt(0)
 
+        create_pie_chart(ingresos, gastos)
+
+        val toast6 = Toast.makeText(
+            applicationContext,
+            "Zona de graficos", Toast.LENGTH_SHORT
+        )
+        toast6.show()
+
+        botonvolvergraficos.setOnClickListener{
+            val intent= Intent(this,pantallaprincipal::class.java)
+            intent.putExtra("email",email)
+            startActivity(intent)
+        }
+
+    }
+
+
+    private fun create_pie_chart(ingresos: Int, gastos: Int) {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""
 
@@ -72,17 +89,5 @@ class graficos: AppCompatActivity() {
 
         chart.setData(pieData)
         chart.invalidate()
-
-        val toast6 = Toast.makeText(
-            applicationContext,
-            "Zona de graficos", Toast.LENGTH_SHORT
-        )
-        toast6.show()
-
-        botonvolvergraficos.setOnClickListener{
-            val intent= Intent(this,pantallaprincipal::class.java)
-            startActivity(intent)
-        }
-
-        }
     }
+}

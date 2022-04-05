@@ -42,53 +42,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/cuadronotificaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="194dp"
-        android:layout_marginTop="530dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="84dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="#0B0303"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/TEXTO4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="190dp"
-        android:layout_marginTop="508dp"
-        android:layout_marginEnd="74dp"
-        android:text="CREAR NOTIFICACION"
-        android:textColor="#0C0101"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/botonnotificaciones"
-        android:layout_width="69dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="336dp"
-        android:layout_marginTop="481dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="129dp"
-        android:backgroundTint="#C45FAF4A"
-        android:text="CREAR"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

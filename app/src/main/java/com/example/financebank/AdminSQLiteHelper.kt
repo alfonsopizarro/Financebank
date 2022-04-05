@@ -21,6 +21,12 @@ class AdminSQLiteHelper (context: Context, name: String, factory: CursorFactory?
                 "esIngreso" + " BOOLEAN NOT NULL, " +
                 "cantidad" + " Int NOT NULL);"
         );
+        db.execSQL(" CREATE TABLE " + "notificaciones" + " (" +
+                "email" + " TEXT NOT NULL, " +
+                "ID" + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "texto" + " TEXT NOT NULL, " +
+                "cantidad" + " Int NOT NULL);"
+        );
 
     }
 

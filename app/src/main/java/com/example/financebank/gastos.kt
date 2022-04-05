@@ -20,8 +20,16 @@ class gastos: AppCompatActivity() {
         )
         toast5.show()
 
+        val extras = intent.extras
+        var email = ""
+        if (extras != null) {
+            email = extras.getString("email").toString()
+
+        }
+
         botonvolvergastos.setOnClickListener{
             val intent= Intent(this,pantallaprincipal::class.java)
+            intent.putExtra("email",email)
             startActivity(intent)
         }
 
@@ -34,6 +42,7 @@ class gastos: AppCompatActivity() {
             gasto.put("concepto", nombregastos.getText().toString())
             gasto.put("fecha", fechagastos.getText().toString())
             gasto.put("esIngreso", false)
+            gasto.put("email", email)
             gasto.put("cantidad", Integer.parseInt(cantidadgastos.getText().toString()))
             bd.insert("movimientos",null, gasto)
             bd.close()
