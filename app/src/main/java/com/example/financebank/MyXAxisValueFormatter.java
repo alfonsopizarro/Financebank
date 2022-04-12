@@ -12,7 +12,7 @@ public class MyXAxisValueFormatter extends IndexAxisValueFormatter {
     @Override
     public String getFormattedValue(float value) {
         // Convierte float value a date string
-        // Convert from seconds back to milliseconds to format time  to show to the user
+        // convierte from segundos back to milisegundos to format tiempo  enseña al usuario
         long emissionsMilliSince1970Time = ((long) value) * 1000;
         // Show time in local version
         Date timeMilliseconds = new Date(emissionsMilliSince1970Time);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hoja1">
+    android:background="@drawable/hoja1">>
 
     <Button
         android:id="@+id/botoncrearnoti"
@@ -14,7 +14,9 @@
         android:layout_marginTop="474dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="137dp"
+        android:backgroundTint="#41612F"
         android:text="CREAR"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +30,9 @@
         android:layout_marginTop="509dp"
         android:layout_marginEnd="245dp"
         android:layout_marginBottom="102dp"
+        android:backgroundTint="#9E1D1D"
         android:text="VOLVER"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,8 +41,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="83dp">
+        android:layout_marginTop="82dp"
+        android:layout_marginBottom="377dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/mostrarnoti"
@@ -56,6 +64,8 @@
         android:layout_marginEnd="119dp"
         android:layout_marginBottom="577dp"
         android:text="NOTIFIACIONES ACTUALES"
+        android:textColor="#0B0000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +86,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/cantidadnoti"
@@ -93,18 +104,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/botonlimpiarnoti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="111dp"
+        android:layout_height="62dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="284dp"
+        android:layout_marginEnd="320dp"
         android:layout_marginBottom="327dp"
+        android:backgroundTint="#8BA5F6"
         android:text="lIMPIAR"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
