@@ -1,23 +1,13 @@
 package com.example.financebank
 
 import android.content.Intent
+import android.database.Cursor
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_graficos.*
-import android.R
 import android.graphics.Color
-import android.view.View
-import com.github.mikephil.charting.charts.LineChart
-import kotlinx.android.synthetic.main.activity_main.*
-import com.github.mikephil.charting.data.PieData
-
-import com.github.mikephil.charting.data.PieDataSet
-
-import com.github.mikephil.charting.data.PieEntry
-import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.charts.BarChart
-import kotlinx.android.synthetic.main.activity_gastos.*
+import com.github.mikephil.charting.data.*
 
 
 class graficos: AppCompatActivity() {
@@ -40,6 +30,9 @@ class graficos: AppCompatActivity() {
         var gastos = 0
         val data_ingresos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = TRUE and email='${email}'", null)
         val data_gastos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = FALSE and email='${email}'", null)
+        val movimientos  = bd.rawQuery("select fecha, cantidad, esIngreso from movimientos  WHERE email='${email}' order by date(fecha) asc", null)
+
+
         if (data_ingresos.moveToFirst())
             //pasar datos a graficos
             ingresos = ingresos + data_ingresos.getInt(0)
@@ -47,6 +40,9 @@ class graficos: AppCompatActivity() {
             gastos = gastos + data_gastos.getInt(0)
 
         create_pie_chart(ingresos, gastos)
+
+        create_barchart(movimientos)
+
 
         val toast6 = Toast.makeText(
             applicationContext,
@@ -60,6 +56,27 @@ class graficos: AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    private fun create_barchart(movimientos: Cursor) {
+        val mymap = LinkedHashMap<String, Int>()
+
+        while (movimientos.moveToNext()) {
+            if (mymap.containsKey(movimientos.getString(0))) {//Ya existe la fecha en mi mapa, entonces actualizo
+                val valor = mymap[movimientos.getString(0)] ?: 0
+                if (movimientos.getInt(2) == 1) {//esto significa que es un ingreso
+                    mymap[movimientos.getString(0)] = valor + movimientos.getInt(1)
+                } else // es un gasto
+                    mymap[movimientos.getString(0)] = valor - movimientos.getInt(1)
+            } else // No existe la fecha en mi mapa, entonces lo guardo
+                mymap[movimientos.getString(0)] = movimientos.getInt(1)
+        }
+
+        val entries =  ArrayList<BarEntry>()
+         for((key, value) in mymap){
+             entries.add(BarEntry(key, value))
+
+         }
     }
 
 
@@ -87,7 +104,7 @@ class graficos: AppCompatActivity() {
         val pieData = PieData(pieDataSet)
         pieData.setDrawValues(true)
 
-        chart.setData(pieData)
-        chart.invalidate()
+        graficotarta.setData(pieData)
+        graficotarta.invalidate()
     }
 }

@@ -7,8 +7,19 @@
     android:layout_height="match_parent"
     android:background="@drawable/hoja1">
 
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/graficotarta"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="229dp"
+        android:layout_marginBottom="190dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart_saldo"
+        android:id="@+id/graficobarras"
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_marginBottom="430dp"
@@ -17,14 +28,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"></com.github.mikephil.charting.charts.BarChart>
 
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/chart"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_marginBottom="459dp" />
-    </com.github.mikephil.charting.charts.BarChart>
 
     <Button
         android:id="@+id/botonvolvergraficos"
