@@ -7,10 +7,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_graficos.*
 import android.graphics.Color
+import android.util.Log
 import com.github.mikephil.charting.data.*
+import java.text.SimpleDateFormat
+import com.github.mikephil.charting.data.LineData
+
+
+
 
 
 class graficos: AppCompatActivity() {
+
+    val format = SimpleDateFormat("dd/MM/yyyy")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +38,7 @@ class graficos: AppCompatActivity() {
         var gastos = 0
         val data_ingresos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = TRUE and email='${email}'", null)
         val data_gastos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = FALSE and email='${email}'", null)
-        val movimientos  = bd.rawQuery("select fecha, cantidad, esIngreso from movimientos  WHERE email='${email}' order by date(fecha) asc", null)
+        val movimientos  = bd.rawQuery("select fecha, cantidad, esIngreso from movimientos  WHERE email='${email}' order by substr(fecha,7)||substr(fecha,4,2)||substr(fecha,1,2) asc", null)
 
 
         if (data_ingresos.moveToFirst())
@@ -40,9 +48,7 @@ class graficos: AppCompatActivity() {
             gastos = gastos + data_gastos.getInt(0)
 
         create_pie_chart(ingresos, gastos)
-
         create_barchart(movimientos)
-
 
         val toast6 = Toast.makeText(
             applicationContext,
@@ -64,19 +70,35 @@ class graficos: AppCompatActivity() {
         while (movimientos.moveToNext()) {
             if (mymap.containsKey(movimientos.getString(0))) {//Ya existe la fecha en mi mapa, entonces actualizo
                 val valor = mymap[movimientos.getString(0)] ?: 0
-                if (movimientos.getInt(2) == 1) {//esto significa que es un ingreso
+                if (movimientos.getInt(2) == 1) //esto significa que es un ingreso
                     mymap[movimientos.getString(0)] = valor + movimientos.getInt(1)
-                } else // es un gasto
+                else // es un gasto
                     mymap[movimientos.getString(0)] = valor - movimientos.getInt(1)
-            } else // No existe la fecha en mi mapa, entonces lo guardo
-                mymap[movimientos.getString(0)] = movimientos.getInt(1)
+            } else { // No existe la fecha en mi mapa, entonces lo guardo
+                if (movimientos.getInt(2) == 1) //esto significa que es un ingreso
+                    mymap[movimientos.getString(0)] = movimientos.getInt(1)
+                else
+                    mymap[movimientos.getString(0)] = -movimientos.getInt(1)
+            }
         }
 
-        val entries =  ArrayList<BarEntry>()
-         for((key, value) in mymap){
-             entries.add(BarEntry(key, value))
+        val entries =  ArrayList<Entry>()
+        for((key, value) in mymap){
+            Log.d("hola", key)
+            Log.d("hola", value.toString())
 
-         }
+            entries.add( Entry ((format.parse(key).time / 1000L ).toFloat(), value.toFloat()))
+        }
+        val dataSet =  LineDataSet(entries, "Saldo")
+        val colors: ArrayList<Int> = ArrayList()
+        //primero color naranja segundo verde
+        colors.add(Color.parseColor("#b3543e"))
+        dataSet.colors = colors
+
+        val lineData = LineData(dataSet)
+        graficoLinea.setData(lineData)
+        graficoLinea.xAxis.setValueFormatter(MyXAxisValueFormatter())
+        graficoLinea.invalidate()
     }
 
 
