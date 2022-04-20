@@ -11,6 +11,14 @@ import android.util.Log
 import com.github.mikephil.charting.data.*
 import java.text.SimpleDateFormat
 import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.components.YAxis
+
+import com.github.mikephil.charting.components.LimitLine.LimitLabelPosition
+
+import com.github.mikephil.charting.components.LimitLine
+
+
+
 
 
 
@@ -27,10 +35,12 @@ class graficos: AppCompatActivity() {
 
         val extras = intent.extras
         var email = ""
+        var nombre = ""
         if (extras != null) {
             email = extras.getString("email").toString()
-
+            nombre = extras.getString("nombre").toString()
         }
+
 
         val admin = AdminSQLiteHelper(this, "FinanceBank", null, 1)
         val bd = admin.readableDatabase
@@ -39,6 +49,7 @@ class graficos: AppCompatActivity() {
         val data_ingresos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = TRUE and email='${email}'", null)
         val data_gastos  = bd.rawQuery("select sum(cantidad)from movimientos WHERE esIngreso = FALSE and email='${email}'", null)
         val movimientos  = bd.rawQuery("select fecha, cantidad, esIngreso from movimientos  WHERE email='${email}' order by substr(fecha,7)||substr(fecha,4,2)||substr(fecha,1,2) asc", null)
+        val notificaciones  = bd.rawQuery("select texto,cantidad from notificaciones WHERE  email='${email}'", null)
 
 
         if (data_ingresos.moveToFirst())
@@ -49,6 +60,7 @@ class graficos: AppCompatActivity() {
 
         create_pie_chart(ingresos, gastos)
         create_barchart(movimientos)
+        create_limit_line(notificaciones)
 
         val toast6 = Toast.makeText(
             applicationContext,
@@ -59,10 +71,27 @@ class graficos: AppCompatActivity() {
         botonvolvergraficos.setOnClickListener{
             val intent= Intent(this,pantallaprincipal::class.java)
             intent.putExtra("email",email)
+            intent.putExtra("nombre", nombre)
             startActivity(intent)
         }
 
     }
+
+    private fun create_limit_line(notificaciones: Cursor) {
+        val leftAxis: YAxis = graficoLinea.getAxisLeft()
+        leftAxis.removeAllLimitLines() // reset all limit lines to avoid overlapping lines
+
+        while (notificaciones.moveToNext()) {
+            val ll1 = LimitLine(notificaciones.getInt(1).toFloat(), notificaciones.getString(0))
+            ll1.lineWidth = 4f
+            ll1.enableDashedLine(10f, 10f, 0f)
+            ll1.labelPosition = LimitLabelPosition.RIGHT_TOP
+            ll1.textSize = 10f
+
+            leftAxis.addLimitLine(ll1)
+        }
+    }
+
 
     private fun create_barchart(movimientos: Cursor) {
         val mymap = LinkedHashMap<String, Int>()
@@ -101,7 +130,7 @@ class graficos: AppCompatActivity() {
         graficoLinea.invalidate()
     }
 
-
+        //11
     private fun create_pie_chart(ingresos: Int, gastos: Int) {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""

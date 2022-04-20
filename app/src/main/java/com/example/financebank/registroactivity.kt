@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_registroactivity.*
 
 
 class registroactivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registroactivity)
@@ -19,12 +20,13 @@ class registroactivity : AppCompatActivity() {
             applicationContext,
             "Bienvenido al área de registro", Toast.LENGTH_SHORT
         )
+
         toast1.show()
         botonvolver1.setOnClickListener{
             val intent= Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
-
+// en este fragemento de codigo 3
         //base de datos registro
         registroboton.setOnClickListener {
             val admin = AdminSQLiteHelper(this,"FinanceBank", null, 1)

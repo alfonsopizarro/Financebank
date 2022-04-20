@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceBank">
         <activity
+            android:name=".mensajenotifiacion"
+            android:exported="true" />
+        <activity
             android:name=".registroactivity"
             android:exported="true" />
         <activity

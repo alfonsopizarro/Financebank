@@ -22,19 +22,23 @@ class gastos: AppCompatActivity() {
 
         val extras = intent.extras
         var email = ""
+        var nombre = ""
         if (extras != null) {
             email = extras.getString("email").toString()
+            nombre = extras.getString("nombre").toString()
 
         }
 
         botonvolvergastos.setOnClickListener{
             val intent= Intent(this,pantallaprincipal::class.java)
             intent.putExtra("email",email)
+            intent.putExtra("nombre", nombre)
             startActivity(intent)
         }
 
 
-        //tabla gastos
+        //tabla gastos 14
+
         botonaceptargastos.setOnClickListener {
             val admin = AdminSQLiteHelper(this,"FinanceBank", null, 1)
             val bd = admin.writableDatabase
